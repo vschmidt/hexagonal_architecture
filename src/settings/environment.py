@@ -13,10 +13,3 @@ class Environment(BaseSettings):
     ALGORITHM: str = Field("HS256", env="ALGORITHM")
     ACCESS_TOKEN_EXPIRE_MINUTES: int = Field(30, env="ACCESS_TOKEN_EXPIRE_MINUTES")
     AUTO_APPROVED_CPFS: list = Field(["15350946056"], env="AUTO_APPROVED_CPFS")
-    ACCUMULATED_CASHBACK_URL: str = Field(
-        "https://mdaqk8ek5j.execute-api.us-east-1.amazonaws.com/v1/cashback",
-        env="ACCUMULATED_CASHBACK_URL",
-    )
-    ACCUMULATED_CASHBACK_TOKEN: str = Field(
-        "ZXPURQOARHiMc6Y0flhRC1LVlZQVFRnm", env="ACCUMULATED_CASHBACK_TOKEN"
-    )
