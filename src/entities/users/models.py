@@ -1,7 +1,7 @@
 from datetime import datetime
 from sqlalchemy import Column, Integer, String, DateTime, Boolean
 
-from src.infrastructure.postgres.base import base
+from src.adapters.postgres.base import base
 
 
 class UserModel(base):

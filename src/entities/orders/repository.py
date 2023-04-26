@@ -5,7 +5,7 @@ from src.entities.orders.schemas import (
     CreateOrderSchema,
     OrderInDBSchema,
 )
-from src.infrastructure.postgres.database import PostgresDatabase
+from src.adapters.postgres.database import PostgresDatabase
 
 
 class OrderRepository:

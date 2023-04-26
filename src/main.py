@@ -1,7 +1,7 @@
 import logging
 from fastapi import FastAPI
 
-from src.api.endpoints import health_check_router, orders_router, users_router
+from src.adapters.api.endpoints import health_check_router, orders_router, users_router
 
 
 def inject_routers(app: FastAPI):

@@ -14,7 +14,7 @@ class TestUsersV1(unittest.TestCase):
         self.client = TestClient(app)
         self.jwt_generator = JWTGenerator()
 
-    @patch("src.api.endpoints.v1.users.UserService")
+    @patch("src.adapters.api.endpoints.v1.users.UserService")
     def test_create_new_user_with_success(self, service_mock):
         user = UserRegisterSchema(
             **{
@@ -31,7 +31,7 @@ class TestUsersV1(unittest.TestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         service_mock.create_user.assert_called_once()
 
-    @patch("src.api.endpoints.v1.users.UserService")
+    @patch("src.adapters.api.endpoints.v1.users.UserService")
     def test_create_new_user_with_fail(self, service_mock):
         user = UserRegisterSchema(
             **{
@@ -50,7 +50,7 @@ class TestUsersV1(unittest.TestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         service_mock.create_user.assert_called_once()
 
-    @patch("src.api.endpoints.v1.users.UserService")
+    @patch("src.adapters.api.endpoints.v1.users.UserService")
     def test_create_new_user_with_success(self, service_mock):
         user = UserLoginSchema(
             **{
@@ -65,13 +65,13 @@ class TestUsersV1(unittest.TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         service_mock.token_login.assert_called_once_with(user)
 
-    @patch("src.api.endpoints.v1.users.UserService")
+    @patch("src.adapters.api.endpoints.v1.users.UserService")
     def test_get_me_information_without_token(self, service_mock):
         response = self.client.get("/v1/users/me")
 
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
-    @patch("src.api.endpoints.v1.users.UserService")
+    @patch("src.adapters.api.endpoints.v1.users.UserService")
     def test_get_me_information_with_valid_token(self, service_mock):
         response = self.client.get(
             "/v1/users/me",
@@ -88,7 +88,7 @@ class TestUsersV1(unittest.TestCase):
 
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
-    @patch("src.api.endpoints.v1.users.UserService")
+    @patch("src.adapters.api.endpoints.v1.users.UserService")
     def test_get_me_accumulated_cashback(self, service_mock):
         response = self.client.get(
             "/v1/users/me/accumulated-cashback",

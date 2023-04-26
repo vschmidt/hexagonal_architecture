@@ -6,8 +6,8 @@ from sqlalchemy import pool
 from alembic import context
 
 from src.settings.environment import Environment
-from src.infrastructure.postgres.base import base
-from src.infrastructure.postgres.metadata_agregation import MetadataAggregation
+from src.adapters.postgres.base import base
+from src.adapters.postgres.metadata_agregation import MetadataAggregation
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

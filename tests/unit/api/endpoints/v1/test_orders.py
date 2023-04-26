@@ -20,7 +20,7 @@ class TestOrdersV1(unittest.TestCase):
 
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
-    @patch("src.api.endpoints.v1.orders.OrderService")
+    @patch("src.adapters.api.endpoints.v1.orders.OrderService")
     def test_get_all_orders_with_valid_token(self, service_mock):
         response = self.client.get(
             "/v1/orders/get_all_orders",
@@ -37,7 +37,7 @@ class TestOrdersV1(unittest.TestCase):
 
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
-    @patch("src.api.endpoints.v1.orders.OrderService")
+    @patch("src.adapters.api.endpoints.v1.orders.OrderService")
     def test_create_order_with_valid_token(self, service_mock):
         order = CreateOrderSchema(
             **{
@@ -59,7 +59,7 @@ class TestOrdersV1(unittest.TestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         service_mock.create_order.assert_called_once_with(order)
 
-    @patch("src.api.endpoints.v1.orders.OrderService")
+    @patch("src.adapters.api.endpoints.v1.orders.OrderService")
     def test_create_order_with_error_in_order_service(self, service_mock):
         order = CreateOrderSchema(
             **{

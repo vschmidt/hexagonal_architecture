@@ -2,7 +2,7 @@ from sqlalchemy import insert, select
 
 from src.entities.users.models import UserModel
 from src.entities.users.schemas import UserInDBSchema
-from src.infrastructure.postgres.database import PostgresDatabase
+from src.adapters.postgres.database import PostgresDatabase
 
 
 class UserRepository:
