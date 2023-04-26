@@ -2,8 +2,8 @@ import logging
 from fastapi import APIRouter, status, Depends
 from fastapi.responses import JSONResponse
 
-from src.entities.users.schemas import UserRegisterSchema, UserLoginSchema
-from src.entities.users.services import UserService
+from src.core.users.schemas import UserRegisterSchema, UserLoginSchema
+from src.core.users.services import UserService
 from src.shared.auth_bearer_validator import AuthBearerValidator
 from src.shared.schemas import TokenInfos
 

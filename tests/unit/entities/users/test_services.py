@@ -3,8 +3,8 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from src.entities.users.schemas import UserAccumulatedCashbackSchema, UserRegisterSchema
-from src.entities.users.services import UserService
+from src.core.users.schemas import UserAccumulatedCashbackSchema, UserRegisterSchema
+from src.core.users.services import UserService
 from src.shared.exceptions.exceptions import ApiUnavailable, UserAlreadyExists
 from src.shared.schemas import TokenInfos
 

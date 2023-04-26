@@ -3,7 +3,7 @@ from unittest.mock import patch
 from fastapi.testclient import TestClient
 from fastapi import status
 
-from src.entities.users.schemas import UserLoginSchema, UserRegisterSchema
+from src.core.users.schemas import UserLoginSchema, UserRegisterSchema
 from tests.utils.bearer_token_utils import JWTGenerator
 
 

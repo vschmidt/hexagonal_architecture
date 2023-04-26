@@ -3,7 +3,7 @@ from fastapi import status
 import unittest
 from unittest.mock import patch
 from fastapi.testclient import TestClient
-from src.entities.orders.schemas import CreateOrderSchema
+from src.core.orders.schemas import CreateOrderSchema
 
 from tests.utils.bearer_token_utils import JWTGenerator
 

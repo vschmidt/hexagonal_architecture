@@ -4,14 +4,14 @@ import httpx
 from passlib.context import CryptContext
 from jose import jwt
 
-from src.entities.users.schemas import (
+from src.core.users.schemas import (
     UserAccumulatedCashbackSchema,
     UserRegisterSchema,
     UserInDBSchema,
     UserLoginSchema,
     UserSchema,
 )
-from src.entities.users.repository import UserRepository
+from src.core.users.repository import UserRepository
 from src.shared.exceptions.exceptions import ApiUnavailable, UserAlreadyExists
 from src.settings.environment import Environment
 from src.shared.schemas import TokenInfos

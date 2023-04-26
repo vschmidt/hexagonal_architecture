@@ -1,7 +1,7 @@
 from typing import List
 
-from src.entities.orders.repository import OrderRepository
-from src.entities.orders.schemas import (
+from src.core.orders.repository import OrderRepository
+from src.core.orders.schemas import (
     CreateOrderSchema,
     OrderInDBSchema,
     OrderSchema,

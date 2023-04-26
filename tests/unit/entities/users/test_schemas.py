@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 import pytest
 
-from src.entities.users.schemas import UserRegisterSchema
+from src.core.users.schemas import UserRegisterSchema
 
 
 class TestUserSchemas(unittest.TestCase):

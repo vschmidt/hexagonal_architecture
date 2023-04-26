@@ -3,12 +3,12 @@ import unittest
 from unittest.mock import patch
 from datetime import datetime
 
-from src.entities.orders.schemas import (
+from src.core.orders.schemas import (
     CreateOrderSchema,
     OrderSchema,
     PublicOrderSchema,
 )
-from src.entities.orders.services import OrderService
+from src.core.orders.services import OrderService
 
 
 @patch("src.entities.orders.services.OrderRepository")
