@@ -1,7 +1,7 @@
 from sqlalchemy import insert, select
 
-from src.core.users.models import UserModel
-from src.core.users.schemas import UserInDBSchema
+from src.core.domains.users.models import UserModel
+from src.core.domains.users.schemas import UserInDBSchema
 from src.adapters.postgres.database import PostgresDatabase
 
 

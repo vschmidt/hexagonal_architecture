@@ -1,7 +1,7 @@
 from sqlalchemy import select, insert
 
-from src.core.orders.models import OrderModel
-from src.core.orders.schemas import (
+from src.core.domains.orders.models import OrderModel
+from src.core.domains.orders.schemas import (
     CreateOrderSchema,
     OrderInDBSchema,
 )

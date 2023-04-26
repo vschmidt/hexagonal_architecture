@@ -4,14 +4,14 @@ import httpx
 from passlib.context import CryptContext
 from jose import jwt
 
-from src.core.users.schemas import (
+from src.core.domains.users.schemas import (
     UserAccumulatedCashbackSchema,
     UserRegisterSchema,
     UserInDBSchema,
     UserLoginSchema,
     UserSchema,
 )
-from src.core.users.repository import UserRepository
+from src.core.domains.users.repository import UserRepository
 from src.shared.exceptions.exceptions import ApiUnavailable, UserAlreadyExists
 from src.settings.environment import Environment
 from src.shared.schemas import TokenInfos
@@ -76,31 +76,3 @@ class UserService:
     def get_current_user(cls, token_infos: TokenInfos):
         user_in_db = UserRepository.get_user_by_cpf(token_infos.cpf)
         return UserSchema(**user_in_db.dict())
-
-    @classmethod
-    def get_user_cashback(cls, token_infos: TokenInfos):
-        try:
-            accumulated_cashback_response = (
-                cls.__get_cashback_from_accumulate_cashback_api(token_infos)
-            )
-
-            accumulated_cashback = float(
-                accumulated_cashback_response.json().get("body").get("credit")
-            )
-            user = UserAccumulatedCashbackSchema(
-                **{"cpf": token_infos.cpf, "accumulated_cashback": accumulated_cashback}
-            )
-            return user
-        except Exception:
-            raise ApiUnavailable
-
-    @classmethod
-    def __get_cashback_from_accumulate_cashback_api(cls, token_infos: TokenInfos):
-        env = Environment()
-        url = f"{env.ACCUMULATED_CASHBACK_URL}?cpf={token_infos.cpf}"
-        headers = {"token": env.ACCUMULATED_CASHBACK_TOKEN}
-
-        with httpx.Client() as client:
-            response = client.get(url=url, headers=headers)
-
-        return response

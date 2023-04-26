@@ -3,7 +3,7 @@ from unittest.mock import patch
 from fastapi.testclient import TestClient
 from fastapi import status
 
-from src.core.users.schemas import UserLoginSchema, UserRegisterSchema
+from src.core.domains.users.schemas import UserLoginSchema, UserRegisterSchema
 from tests.utils.bearer_token_utils import JWTGenerator
 
 
@@ -82,20 +82,3 @@ class TestUsersV1(unittest.TestCase):
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         service_mock.get_current_user.assert_called_once()
-
-    def test_get_me_accumulated_cashback_without_token(self):
-        response = self.client.get("/v1/users/me/accumulated-cashback")
-
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-    @patch("src.adapters.api.endpoints.v1.users.UserService")
-    def test_get_me_accumulated_cashback(self, service_mock):
-        response = self.client.get(
-            "/v1/users/me/accumulated-cashback",
-            headers={
-                "Authorization": f"Bearer {self.jwt_generator.generate_valid_token()}"
-            },
-        )
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        service_mock.get_user_cashback.assert_called_once()

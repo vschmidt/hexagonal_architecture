@@ -3,15 +3,15 @@ import unittest
 from unittest.mock import patch
 from datetime import datetime
 
-from src.core.orders.schemas import (
+from src.core.domains.orders.schemas import (
     CreateOrderSchema,
     OrderSchema,
     PublicOrderSchema,
 )
-from src.core.orders.services import OrderService
+from src.core.domains.orders.services import OrderService
 
 
-@patch("src.entities.orders.services.OrderRepository")
+@patch("src.core.domains.orders.services.OrderRepository")
 class TestUserService(unittest.TestCase):
     def test_get_all_orders_cashback_values(self, repository_mock):
         orders = [
