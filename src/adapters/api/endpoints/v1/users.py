@@ -3,7 +3,7 @@ from fastapi import APIRouter, status, Depends
 from fastapi.responses import JSONResponse
 
 from src.core.domains.users.schemas import UserRegisterSchema, UserLoginSchema
-from src.core.domains.users.services import UserService
+from src.core.use_cases.users.services import UserService
 from src.shared.auth_bearer_validator import AuthBearerValidator
 from src.shared.schemas import TokenInfos
 

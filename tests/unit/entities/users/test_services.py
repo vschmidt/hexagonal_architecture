@@ -7,7 +7,7 @@ from src.core.domains.users.schemas import (
     UserAccumulatedCashbackSchema,
     UserRegisterSchema,
 )
-from src.core.domains.users.services import UserService
+from src.core.use_cases.users.services import UserService
 from src.shared.exceptions.exceptions import ApiUnavailable, UserAlreadyExists
 from src.shared.schemas import TokenInfos
 

@@ -8,7 +8,7 @@ from src.core.domains.orders.schemas import (
     OrderSchema,
     PublicOrderSchema,
 )
-from src.core.domains.orders.services import OrderService
+from src.core.use_cases.orders.services import OrderService
 
 
 @patch("src.core.domains.orders.services.OrderRepository")

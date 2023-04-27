@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends, status
 from fastapi.responses import JSONResponse
 
 from src.core.domains.orders.schemas import CreateOrderSchema
-from src.core.domains.orders.services import OrderService
+from src.core.use_cases.orders.services import OrderService
 from src.shared.auth_bearer_validator import AuthBearerValidator
 
 orders_router = APIRouter()
