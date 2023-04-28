@@ -4,7 +4,7 @@ from fastapi.responses import JSONResponse
 
 from src.core.domains.orders.schemas import CreateOrderSchema
 from src.core.use_cases.orders.services import OrderService
-from src.shared.auth_bearer_validator import AuthBearerValidator
+from src.adapters.auth.auth_bearer_validator import AuthBearerValidator
 
 orders_router = APIRouter()
 
